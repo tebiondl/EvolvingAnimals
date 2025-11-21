@@ -30,4 +30,4 @@ BROWN = (165, 42, 42)
 # Entity settings
 FOOD_SIZE = 10  # Radius or general size
 FOOD_COUNT = 100
-MONSTER_COUNT = 5
+MONSTER_COUNT = 20

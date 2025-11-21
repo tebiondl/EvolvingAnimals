@@ -44,7 +44,7 @@ class World:
         for config in monster_configs:
             x = random.randint(0, MAP_WIDTH)
             y = random.randint(0, MAP_HEIGHT)
-            Monster((x, y), config, [self.all_sprites, self.monster_group], self.food_group, self.all_sprites)
+            Monster((x, y), config, [self.all_sprites, self.monster_group], self.food_group, self.monster_group, self.all_sprites)
 
     def handle_input(self, event):
         if event.type == pygame.MOUSEWHEEL:

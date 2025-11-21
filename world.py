@@ -4,6 +4,8 @@ from settings import *
 from entities.food import Food
 from entities.monster import Monster
 
+from monster_config import MONSTER_CONFIGS
+
 class World:
     def __init__(self, screen):
         self.screen = screen
@@ -32,16 +34,8 @@ class World:
             Food((x, y), food_type, [self.all_sprites, self.food_group])
 
         # Spawn Monsters
-        # 5 Different types with different stats
-        monster_configs = [
-            {'shape': 'Square', 'color': RED, 'stats': {'health': 100, 'energy': 100, 'speed': 3, 'armour': 5, 'size': 40, 'intelligence': 10}},
-            {'shape': 'Triangle', 'color': GREEN, 'stats': {'health': 60, 'energy': 80, 'speed': 6, 'armour': 1, 'size': 30, 'intelligence': 30}},
-            {'shape': 'Circle', 'color': BLUE, 'stats': {'health': 150, 'energy': 120, 'speed': 2, 'armour': 10, 'size': 50, 'intelligence': 5}},
-            {'shape': 'Pentagon', 'color': YELLOW, 'stats': {'health': 80, 'energy': 90, 'speed': 4, 'armour': 3, 'size': 35, 'intelligence': 20}},
-            {'shape': 'Hexagon', 'color': PURPLE, 'stats': {'health': 120, 'energy': 110, 'speed': 2.5, 'armour': 8, 'size': 45, 'intelligence': 15}},
-        ]
-
-        for config in monster_configs:
+        for _ in range(MONSTER_COUNT):
+            config = random.choice(MONSTER_CONFIGS)
             x = random.randint(0, MAP_WIDTH)
             y = random.randint(0, MAP_HEIGHT)
             Monster((x, y), config, [self.all_sprites, self.monster_group], self.food_group, self.monster_group, self.all_sprites)

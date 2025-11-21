@@ -7,8 +7,8 @@ FPS = 60
 TITLE = "Evolving Animals"
 
 # Map settings
-MAP_WIDTH = 3000
-MAP_HEIGHT = 3000
+MAP_WIDTH = 5120
+MAP_HEIGHT = 2880
 TILE_SIZE = 64
 
 # Colors

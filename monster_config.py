@@ -12,6 +12,8 @@ STAT_RANGES = {
         0.2,
     ),  # Fixed at 20% for now as per request "more than 20%"
     "regen_rate": (0.01, 0.1),  # Random regeneration rate
+    "energy_decay_rate": (0.0015, 0.0005),  # Random energy decay rate
+    "max_energy": (3, 5),  # Random max energy
 }
 
 SHAPES = ["Square", "Triangle", "Circle", "Pentagon", "Hexagon"]

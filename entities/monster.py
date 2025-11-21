@@ -28,10 +28,10 @@ class Monster(pygame.sprite.Sprite):
 
         # Energy (Based on size)
         # Bigger = More Max Energy, but Faster Decay
-        self.max_energy = self.size * 4
+        self.max_energy = self.size * self.stats.get("max_energy", 4)
         self.energy = self.max_energy
         # Bigger monsters decay faster
-        self.energy_decay_rate = self.size * 0.001
+        self.energy_decay_rate = self.size * self.stats.get("energy_decay_rate", 0.001)
 
         # Diet
         self.diet = config.get("diet", "Omnivore")

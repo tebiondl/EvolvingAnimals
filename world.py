@@ -4,7 +4,7 @@ from settings import *
 from entities.food import Food
 from entities.monster import Monster
 
-from monster_config import MONSTER_CONFIGS
+from monster_config import STAT_RANGES, SHAPES, DIETS
 
 
 class World:
@@ -38,11 +38,15 @@ class World:
             )  # No Meat naturally
             Food((x, y), food_type, [self.all_sprites, self.food_group])
 
+        # Generate Random Species
+        self.species_configs = self.generate_species(5)
+
         # Spawn Monsters
         for _ in range(MONSTER_COUNT):
-            config = random.choice(MONSTER_CONFIGS)
             x = random.randint(0, MAP_WIDTH)
             y = random.randint(0, MAP_HEIGHT)
+            # Pick one of the generated species
+            config = random.choice(self.species_configs)
             Monster(
                 (x, y),
                 config,
@@ -51,6 +55,47 @@ class World:
                 self.monster_group,
                 self.all_sprites,
             )
+
+    def generate_species(self, count):
+        configs = []
+        available_shapes = SHAPES.copy()
+
+        for _ in range(count):
+            # Unique shape if possible
+            if available_shapes:
+                shape = available_shapes.pop(
+                    random.randint(0, len(available_shapes) - 1)
+                )
+            else:
+                shape = random.choice(SHAPES)
+
+            # Random Color
+            color = (
+                random.randint(50, 255),
+                random.randint(50, 255),
+                random.randint(50, 255),
+            )
+
+            # Random Diet
+            diet = random.choice(DIETS)
+
+            # Random Stats
+            stats = {
+                "health": random.randint(*STAT_RANGES["health"]),
+                "speed": round(random.uniform(*STAT_RANGES["speed"]), 1),
+                "armour": random.randint(*STAT_RANGES["armour"]),
+                "size": random.randint(*STAT_RANGES["size"]),
+                "intelligence": random.randint(*STAT_RANGES["intelligence"]),
+                "regen_threshold": STAT_RANGES["regen_threshold"][0],
+                "regen_rate": round(random.uniform(*STAT_RANGES["regen_rate"]), 3),
+            }
+
+            configs.append(
+                {"shape": shape, "color": color, "diet": diet, "stats": stats}
+            )
+            print(f"Generated Species: {shape} ({diet}) - Stats: {stats}")
+
+        return configs
 
     def handle_input(self, event):
         if event.type == pygame.MOUSEWHEEL:

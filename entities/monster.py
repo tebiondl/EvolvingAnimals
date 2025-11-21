@@ -113,6 +113,12 @@ class Monster(pygame.sprite.Sprite):
         # Energy Decay
         self.energy -= self.energy_decay_rate
 
+        # Health Regeneration
+        regen_threshold_val = self.max_energy * self.stats.get("regen_threshold", 0.2)
+        if self.energy > regen_threshold_val and self.health < self.stats["health"]:
+            regen_amount = self.stats.get("regen_rate", 0.05)
+            self.health = min(self.stats["health"], self.health + regen_amount)
+
         if self.energy <= 0:
             print(
                 f"Monster died of starvation (Shape: {self.shape}, Size: {self.size})"

@@ -76,6 +76,16 @@ class World:
         self.all_sprites.update()
 
     def draw(self):
+        # Draw Map Background
+        # Calculate screen position of map (0,0)
+        map_x = -self.camera_pos.x * self.zoom
+        map_y = -self.camera_pos.y * self.zoom
+        map_w = MAP_WIDTH * self.zoom
+        map_h = MAP_HEIGHT * self.zoom
+        
+        map_rect = pygame.Rect(map_x, map_y, map_w, map_h)
+        pygame.draw.rect(self.display_surface, BG_COLOR, map_rect)
+
         # Draw grid for reference
         self.draw_grid()
 

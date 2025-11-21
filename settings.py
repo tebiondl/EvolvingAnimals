@@ -12,7 +12,8 @@ MAP_HEIGHT = 3000
 TILE_SIZE = 64
 
 # Colors
-BG_COLOR = (30, 30, 30)
+BG_COLOR = (15, 15, 35) # Map Color
+VOID_COLOR = (5, 5, 10) # Non-playable area color (Darker)
 GRID_COLOR = (40, 40, 40)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)

@@ -33,7 +33,7 @@ class Game:
         self.world.update()
 
     def draw(self):
-        self.screen.fill(BG_COLOR)
+        self.screen.fill(VOID_COLOR)
         self.world.draw()
         pygame.display.flip()
 

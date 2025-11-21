@@ -4,6 +4,7 @@ MONSTER_CONFIGS = [
     {
         "shape": "Square",
         "color": RED,
+        "diet": "Carnivore",
         "stats": {
             "health": 100,
             "energy": 100,
@@ -16,6 +17,7 @@ MONSTER_CONFIGS = [
     {
         "shape": "Triangle",
         "color": GREEN,
+        "diet": "Herbivore",
         "stats": {
             "health": 60,
             "energy": 80,
@@ -28,6 +30,7 @@ MONSTER_CONFIGS = [
     {
         "shape": "Circle",
         "color": BLUE,
+        "diet": "Omnivore",
         "stats": {
             "health": 150,
             "energy": 120,
@@ -40,6 +43,7 @@ MONSTER_CONFIGS = [
     {
         "shape": "Pentagon",
         "color": YELLOW,
+        "diet": "Herbivore",
         "stats": {
             "health": 80,
             "energy": 90,
@@ -52,6 +56,7 @@ MONSTER_CONFIGS = [
     {
         "shape": "Hexagon",
         "color": PURPLE,
+        "diet": "Carnivore",
         "stats": {
             "health": 120,
             "energy": 110,

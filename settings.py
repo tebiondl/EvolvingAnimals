@@ -12,8 +12,8 @@ MAP_HEIGHT = 2880
 TILE_SIZE = 64
 
 # Colors
-BG_COLOR = (15, 15, 35) # Map Color
-VOID_COLOR = (5, 5, 10) # Non-playable area color (Darker)
+BG_COLOR = (15, 15, 35)  # Map Color
+VOID_COLOR = (5, 5, 10)  # Non-playable area color (Darker)
 GRID_COLOR = (40, 40, 40)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -31,3 +31,5 @@ BROWN = (165, 42, 42)
 FOOD_SIZE = 10  # Radius or general size
 FOOD_COUNT = 100
 MONSTER_COUNT = 20
+
+FOOD_ENERGY = {"Apple": 20, "Meat": 50, "Plant": 15, "Berry": 10, "Water": 5}
